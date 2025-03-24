@@ -20,13 +20,8 @@ public class PatientController {
 
     @GetMapping("/index")
 
-    public String index(Model model) {
-        List<Patient> patients = patientRepository.findAll();
-        model.addAttribute("ListsPatients", patients);
-        return "patients";
-    }
-}
-    /*public String index(Model model,
+
+    public String index(Model model,
                         @RequestParam(name="page",defaultValue = "0")
                         int page ,
                         @RequestParam(name="size",defaultValue = "4")
@@ -53,4 +48,4 @@ public class PatientController {
     public String home(){
         return "redirect:/index";
     }
-}*/
+}

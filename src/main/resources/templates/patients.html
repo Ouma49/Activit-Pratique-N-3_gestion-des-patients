@@ -6,28 +6,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Patients</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <link rel="stylesheet"  href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css" />
 </head>
 
 <body>
-    <h1>Patients</h1>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Date</th>
-            <th>Malade</th>
-            <th>Score</th>
-        </tr>
+<div class="p-3">
+    <div class="card">
+        <div class="card-header">Liste Patients</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th> <th>Nom</th> <th>Date</th> <th>Malade</th> <th>Score</th>
+                </tr>
 
-        <tr th:each="patient : ${patients}">
-            <td th:text="${patient.id}"></td>
-            <td th:text="${patient.nom}"></td>
-            <td th:text="${patient.dateNaissance}"></td>
-            <td th:text="${patient.malade}"></td>
-            <td th:text="${patient.score}"></td>
-        </tr>
-    </table>
+                <tr th:each="p:${ListsPatients}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.nom}"></td>
+                    <td th:text="${p.dateNaissance}"></td>
+                    <td th:text="${p.malade}"></td>
+                    <td th:text="${p.score}"></td>
+                </thead>
+            </table>
+            <ul class="nav nav-pills">
+                <li th:each="page,status :${pages}">
+                    <a class="btn btn-outline-info" th:text="${status.index}"></a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
 </body>
 </html>
 
